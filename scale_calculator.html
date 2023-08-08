@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scale Calculator</title>
+  <script>
+    function scaleCalculator() {
+      var scale = parseInt(prompt('What is your scale? e.g. 1:50000. 1:?'));
+      if (!isNaN(scale)) {
+        var distance_cm = parseFloat(prompt('Enter the distance in centimeters:'));
+        if (!isNaN(distance_cm)) {
+          var intxt_st = parseInt(prompt('Would you like the output in meters or kilometers? Please choose: 1 for meters and 2 for km:'));
+          if (!isNaN(intxt_st)) {
+            var distance_map_units = scale * distance_cm;
+            if (intxt_st === 1) {
+              var distance_m = distance_map_units / 100.0;
+              alert(`For a scale of 1:${scale}, The answer in meters is: ${distance_m} m`);
+            } else if (intxt_st === 2) {
+              var distance_km = distance_map_units / 100000.0;
+              alert(`For a scale of 1:${scale}, the answer in kilometers is: ${distance_km} km`);
+            } else {
+              alert('Invalid input. Please try again.');
+            }
+          } else {
+            alert('Invalid input. Please try again.');
+          }
+        } else {
+          alert('Invalid input. Please try again.');
+        }
+      } else {
+        alert('Invalid input. Please try again.');
+      }
+    }
+  </script>
+</head>
+<body>
+  <button onclick="scaleCalculator()">Scale Calculator</button>
+</body>
+</html>
