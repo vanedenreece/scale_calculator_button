@@ -11,11 +11,13 @@
     }
     .container {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
     }
     .calculator-button {
+      margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
       background-color: #007bff;
@@ -28,12 +30,17 @@
     .calculator-button:hover {
       background-color: #0056b3;
     }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
   </style>
   <script>
     function scaleCalculator() {
       var scaleInput = document.getElementById('scaleInput');
       var distanceCmInput = document.getElementById('distanceCmInput');
       var outputTypeInput = document.getElementById('outputTypeInput');
+      var outputDiv = document.getElementById('outputDiv');
 
       var scale = parseInt(scaleInput.value);
       var distanceCm = parseFloat(distanceCmInput.value);
@@ -53,9 +60,9 @@
           result = 'Invalid output type selected. Please choose 1 for meters or 2 for km.';
         }
 
-        alert(result);
+        outputDiv.textContent = result;
       } else {
-        alert('Invalid input. Please fill in all fields with valid numbers.');
+        outputDiv.textContent = 'Invalid input. Please fill in all fields with valid numbers.';
       }
     }
   </script>
@@ -78,7 +85,9 @@
       </select>
     </div>
     <button class="calculator-button" onclick="scaleCalculator()">Calculate</button>
+    <div id="outputDiv" class="output"></div>
   </div>
 </body>
 </html>
+
 
