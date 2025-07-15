@@ -1,3 +1,3 @@
 # Scale Calculator
 
-## Simple Static Scale Calculator on the Frontedn
+## Simple Static Scale Calculator on the Frontend
